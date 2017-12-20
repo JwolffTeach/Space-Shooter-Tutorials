@@ -49,6 +49,7 @@ done = False
 clock = pygame.time.Clock()
  
 # -------- Main Program Loop -----------
+
 while not done:
     # --- Main event loop
     # set done to whatever gf.check_events returns. If check_events returns 

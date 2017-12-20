@@ -16,6 +16,8 @@ Lesson 3 - Refactor sound effects and add game_functions file.
 
 import pygame
 
+WHITE = (255, 255, 255)
+
 def check_events(player):
     """ Respond to keypresses and mouse events. """
     for event in pygame.event.get():
