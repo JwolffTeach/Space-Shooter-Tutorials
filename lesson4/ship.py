@@ -1,3 +1,11 @@
+"""
+Lesson 4 - Refactor screen updating to game_functions. Restrict the ship's movement so it doesn't go off screen.
+  Changes to this file:
+    1. Add settings as a parameter to __init__ so we can use the screen_width and screen_height values.
+    2. In the update_location function, check if the ship has moved off the screen to the left, right, top, or bottom. 
+      a. If it has, then reset it's position so its on the edge.
+"""
+
 import pygame
 
 # Define some colors
@@ -7,9 +15,10 @@ BLACK = (0, 0, 0)
 
 class Ship():
     
-    def __init__(self, screen):
+    def __init__(self, screen, settings):
         """ Initialize the ship. """
         self.screen = screen
+        self.settings = settings
         
         # Add the spaceship image to program
         self.image = pygame.image.load("PNG/playerShip1_blue.png").convert()
@@ -21,10 +30,26 @@ class Ship():
         self.sfx = pygame.mixer.Sound("Bonus/sfx_laser1.ogg")        
         
     def update_location(self):
-        """ Update the position of our ship to be the mouse position. """
+        """ Update the position of our ship to be the mouse position, but don't go off the screen. """
         mouse_pos = pygame.mouse.get_pos()
+        
         self.rect.centerx = mouse_pos[0]
-        self.rect.centery = mouse_pos[1]        
+        self.rect.centery = mouse_pos[1]   
+        
+        # Check if the ship is off the screen to the left
+        if self.rect.centerx < self.rect.width/2: # If this is true, then the ship should not go off the screen.
+            self.rect.centerx = self.rect.width/2 # Reset position to the left side of the screen.
+        # Check if the ship is off the screen to the right
+        if self.rect.centerx > self.settings.screen_width - self.rect.width/2: # If this is true, then the ship should not go off the screen.
+            self.rect.centerx = self.settings.screen_width - self.rect.width/2 # Reset position to the right side of the screen.
+        
+        # Check if the ship is off the screen to the top
+        if self.rect.centery < self.rect.height/2: # If this is true, then the ship should not go off the screen.
+            self.rect.centery = self.rect.height/2 # Reset position to the top of the screen.
+        
+        # Check if the ship is off the screen to the bottom  
+        if self.rect.centery > self.settings.screen_height - self.rect.height/2: # If this is true, then the ship should not go off the screen.
+            self.rect.centery = self.settings.screen_height - self.rect.height/2 # Reset position to the bottom of the screen.
     
     def blitme(self):
         """ Draw the ship at its current location to the screen. """

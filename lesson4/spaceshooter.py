@@ -2,6 +2,7 @@
 Lesson 4 - Refactor screen updating to game_functions. Restrict the ship's movement so it doesn't go off screen.
   Changes to this file:
     1. screen.fill, screen.blit, player.blitme and display.flip code was moved to the game_functions.py file.
+    2. Add settings as a parameter to pass to player when we instantiate player.
 """
 
 import pygame
@@ -25,7 +26,7 @@ background_image = pygame.image.load("Backgrounds/blue2.png").convert()
 # Load the sounds
 lazer = pygame.mixer.Sound("Bonus/sfx_laser1.ogg")
 
-player = Ship(screen) # Create the player; Player is a ship; Draw the ship on the screen
+player = Ship(screen, settings) # Create the player; Player is a ship; Draw the ship on the screen
 
 pygame.display.set_caption("My Game")
  

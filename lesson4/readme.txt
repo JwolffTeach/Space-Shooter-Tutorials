@@ -10,4 +10,7 @@ Lesson name: Lesson 4 - Refactor screen updating to game_functions. Restrict the
     5. Add the color WHITE to our game_functions.py file. It should be (255, 255, 255)
   
   Restrict the ship's movement so it doesn't go off screen.
-    
+    1. Open ship.py file.
+    2. Edit the update_location function:
+      a. Check the x position validity. If we've gone outside the screen boundary, then reset position.
+      b. Check the y position validity. If we've gone outside the screen boundary, then reset position.
