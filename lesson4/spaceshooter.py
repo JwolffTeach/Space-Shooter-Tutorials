@@ -1,5 +1,7 @@
 """
 Lesson 4 - Refactor screen updating to game_functions. Restrict the ship's movement so it doesn't go off screen.
+  Changes to this file:
+    1. screen.fill, screen.blit, player.blitme and display.flip code was moved to the game_functions.py file.
 """
 
 import pygame
