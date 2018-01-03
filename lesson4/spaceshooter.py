@@ -46,7 +46,7 @@ while not done:
     # Check quit event
     
     # --- Game logic should go here
-    player.update_location()
+    player.update_location(settings)
     
     gf.update_screen(screen, player)
  
