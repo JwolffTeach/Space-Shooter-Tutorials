@@ -1,6 +1,13 @@
 """
 Lesson 5 - Shooting Bullets
-Add more description later
+
+Changes to this file:
+  1. Import the Group class from pygame.sprite
+  2. Make a group to store bullets in.
+  3. Add bullets as a parameter to gf.check_events() method call.
+  4. call update() method for each bullet in bullets group.
+  5. Add bullets as a parameter to the gf.update_screen() method.
+
 """
 
 import pygame
@@ -42,9 +49,6 @@ while not done:
     # --- Game logic should go here
     player.update_location()
     bullets.update()
-    # Redraw all bullets behind ship and aliens.
-    for bullet in bullets.sprites():
-        bullet.draw_bullet()
     
     # --- Draw all objects to the screen
     gf.update_screen(screen, player, bullets)

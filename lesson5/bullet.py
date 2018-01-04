@@ -1,6 +1,8 @@
 """
 Lesson 5 - Shooting Bullets
-Add more description later
+
+New File - All code is new to this lesson.
+
 """
 
 import pygame

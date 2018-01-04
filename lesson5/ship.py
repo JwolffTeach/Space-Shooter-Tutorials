@@ -1,6 +1,8 @@
 """
 Lesson 5 - Shooting Bullets
-No changes
+
+Changes to this file:
+No changes to this file
 
 """
 

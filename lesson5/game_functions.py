@@ -1,6 +1,18 @@
 """
 Lesson 5 - Shooting Bullets
-Add more description later
+
+Changes to this file:
+
+  1. check_events(): When the user clicks mousedown, we want to fire_weapon, and create a bullet.
+    a. Create a new_bullet after we call fire_bullet() function.
+      i. A Bullet class requires the following parameters: settings, screen, and player
+    b. Add bullets as a parameter to check_events() function.
+    c. Add this bullet to our bullets Group.
+    
+  2. update_screen(): Draw bullets when we update the screen.
+    a. Add bullets as a parameter to the update_screen() function.
+    b. Loop through bullets and call the draw_bullet() function for each bullet.
+
 """
 
 import pygame
@@ -28,7 +40,7 @@ def update_screen(screen, player, bullets):
     # --- Drawing code should go here
     
     # Redraw all bullets behind player and aliens
-    for bullet in bullets.sprites():
+    for bullet in bullets:
         bullet.draw_bullet()
     
     player.blitme()

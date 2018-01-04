@@ -1,8 +1,10 @@
 """
-Lesson 5  - Shooting Bullets
+Lesson 5 - Shooting Bullets
 
 Changes to this file:
-    1. Add bullet settings for speed, width, height, and color
+
+    1. Add bullet settings for speed_factor, width, height, and color
+    
 """
 
 import pygame
