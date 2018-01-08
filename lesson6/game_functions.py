@@ -43,6 +43,7 @@ def update_screen(screen, player, bullets):
     pygame.display.flip()    
 
 def check_bullets_pos(bullets):
+    """ Check if a bullet has gone off the screen. If it has, remove it. """
     for bullet in bullets:
         if bullet.rect.bottom < 0:
             bullets.remove(bullet)
