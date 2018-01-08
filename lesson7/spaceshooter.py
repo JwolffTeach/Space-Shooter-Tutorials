@@ -3,12 +3,17 @@ Lesson 7 - Creating an Enemy
 
 Changes to this file:
 
+  1. from enemy Import enemy
+  2. make a new enemy. enemy = Enemy(settings, screen)
+  3. add enemy as a parameter to update_screen() call.
+  
 
 """
 
 import pygame
 from pygame.sprite import Group
 from ship import Ship
+from enemy import Enemy
 from settings import Settings
 import game_functions as gf
  
@@ -27,6 +32,9 @@ player = Ship(screen, settings) # Create the player; Player is a ship; Draw the 
 
 # Make a group to store bullets in.
 bullets = Group()
+
+# Make an enemy.
+enemy = Enemy(settings, screen)
 
 pygame.display.set_caption("My Game")
  
@@ -48,7 +56,7 @@ while not done:
     gf.check_bullets_pos(bullets)
     
     # --- Draw all objects to the screen
-    gf.update_screen(screen, player, bullets)
+    gf.update_screen(screen, player, enemy, bullets)
     
     # --- Limit to 60 frames per second
     clock.tick(60)

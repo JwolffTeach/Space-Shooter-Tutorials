@@ -3,9 +3,8 @@ Lesson 7 - Creating an Enemy
 
 Changes to this file:
 
-  1. new function: check_bullets_pos()
-    a. bullets is a parameter because we want to check the y position of each bullet.
-    b. loop through each bullet, check if the rect.bottom is less than 0. if it is, remove it from the group!
+  1. Add a parameter for enemy in update_screen() function.
+  2. call the enemy.blitme() function after player.blitme() to draw the enemy.
 
 """
 
@@ -26,7 +25,7 @@ def check_events(settings, screen, player, bullets):
             bullets.add(new_bullet)
     return False # Do NOT close the application.
 
-def update_screen(screen, player, bullets):
+def update_screen(screen, player, enemy, bullets):
     """ Update images on the screen and flip to the new screen. """
     # --- Screen-clearing code goes here
     screen.fill(WHITE)
@@ -38,6 +37,7 @@ def update_screen(screen, player, bullets):
         bullet.draw_bullet()
     
     player.blitme()
+    enemy.blitme()
     
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()    
