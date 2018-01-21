@@ -3,15 +3,8 @@ Lesson 9 - Bullet Collision and Enemy Group
 
 Changes to this file:
 
-  1. Added enemy as a parameter to update_bullets() function so we can check for collisions between bullets and enemy.
-  2. Added collision checking line in update_bullets()
-  3. Change references from enemy to enemies
-    a. update_screen() parameter enemy --> enemies
-         - change enemy.blitme() to loop through all enemies and blit them.
-    b. update_bullets() parameter enemy --> enemies
-         - change spritecollide to be groupcollide
-    c. update_enemies() parameter enemy --> enemies
-         - enemy.update() --> enemies.update()
+  1. Added check_collisions() function to check for bullet/enemy collisions.
+  2. Refactor: update_everything() function will execute all update functions.
   
 """
 
@@ -57,14 +50,12 @@ def check_bullets_pos(bullets):
         if bullet.rect.bottom < 0:
             bullets.remove(bullet)
             
-def update_bullets(bullets, enemies):
-    """ Update the position of all bullets in the game. """
-    bullets.update()
-    
+def check_collisions(settings, bullets, enemies):    
     # Check for any bullets that have hit enemies.
     # If so, get rid of the bullet and the alien.
     collisions = pygame.sprite.groupcollide(enemies, bullets, True, True)
-            
-def update_enemies(enemies):
-    """ Update the position of all enemies in the game. """
+    
+def update_everything(player, bullets, enemies):
+    player.update_location()
+    bullets.update()
     enemies.update()

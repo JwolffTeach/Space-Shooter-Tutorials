@@ -9,6 +9,7 @@ Changes to this file:
     a. gf.update_bullets()
     b. gf.update_enemies()
     c. gf.update_screen()
+  4. Refactor: update_[thing] changed to gf.update_everything() call.
 
 """
 
@@ -58,9 +59,8 @@ while not done:
     done = gf.check_events(settings, screen, player, bullets)
     
     # --- Game logic should go here
-    player.update_location()
-    gf.update_bullets(bullets, enemies)
-    gf.update_enemies(enemies)
+    gf.update_everything(player, bullets, enemies)
+    gf.check_collisions(settings, bullets, enemies)
     gf.check_bullets_pos(bullets)
     
     # --- Draw all objects to the screen

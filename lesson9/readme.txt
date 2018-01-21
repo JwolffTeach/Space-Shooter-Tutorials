@@ -7,8 +7,8 @@ check for bullet scolliding with enemies!
 ----- Bullet Collision -----
 
  game_functions
-  1. Add enemy as a parameter to update_bullets() function so we can check for collisions between bullets and enemy.
-  2. Add collision checking line in update_bullets()
+  1. Added check_collisions() function to check for bullet/enemy collisions.
+  2. Refactor: update_everything() function will execute all update functions.
 
  spaceshooter
   3. Added enemy as a parameter to gf.udpate_bullets() function call.
@@ -22,12 +22,7 @@ check for bullet scolliding with enemies!
     a. gf.update_bullets()
     b. gf.update_enemies()
     c. gf.update_screen()
+  6. Refactor: update_[thing] changed to gf.update_everything() call.
 
  game_functions
-  6.  Change references from enemy to enemies
-    a. update_screen() parameter enemy --> enemies
-         - change enemy.blitme() to loop through all enemies and blit them.
-    b. update_bullets() parameter enemy --> enemies
-         - change spritecollide to be groupcollide
-    c. update_enemies() parameter enemy --> enemies
-         - enemy.update() --> enemies.update()
+  7.  Change references from enemy to enemies
