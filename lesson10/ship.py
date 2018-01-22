@@ -1,5 +1,5 @@
 """
-Lesson 9 - Bullet Collision and Enemy Group
+Lesson 10 - Multiple Enemies and Keeping Track of Score
 
 Changes to this file:
 

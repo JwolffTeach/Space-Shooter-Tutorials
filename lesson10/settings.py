@@ -1,10 +1,12 @@
 """
-Lesson 9 - Bullet Collision and Enemy Group
+Lesson 10 - Multiple Enemies and Keeping Track of Score
 
 Changes to this file:
 
-  No changes to this file
-    
+  1. Added Score variable as self.score
+  2. Created a function to increase score, increase_score(self, amount)
+  3. Add enemy_points variable as self.enemy_points
+
 """
 
 import pygame
@@ -27,3 +29,11 @@ class Settings():
         
         # Enemy settings
         self.enemy_speed_factor = 1
+        
+        # Score Settings
+        self.score = 0
+        self.enemy_points = 50
+        
+    def increase_score(self, amount):
+        self.score += amount
+        print(self.score)

@@ -1,5 +1,5 @@
 """
-Lesson 9 - Bullet Collision and Enemy Group
+Lesson 10 - Bullet Collision and Enemy Group
 
 Changes to this file:
 
