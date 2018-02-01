@@ -55,7 +55,13 @@ def check_bullets_pos(bullets):
         if bullet.rect.bottom < 0:
             bullets.remove(bullet)
             
-def check_collisions(settings, screen, sb, bullets, enemies, enemy_bullets):    
+def check_enemy_bullets_pos(enemy_bullets, settings):    
+    """ Check if a bullet has gone off the screen. If it has, remove it. """
+    for enemy_bullet in enemy_bullets:
+        if enemy_bullet.rect.top > settings.screen_height:
+            enemy_bullets.remove(enemy_bullet)
+            
+def check_collisions(settings, screen, sb, player, bullets, enemies, enemy_bullets):    
     # Check for any bullets that have hit enemies.
     # If so, get rid of the bullet and the alien.
     collisions = pygame.sprite.groupcollide(enemies, bullets, False, True)
@@ -65,6 +71,11 @@ def check_collisions(settings, screen, sb, bullets, enemies, enemy_bullets):
             enemy.healthbar.decrease_hp()
             if enemy.healthbar.hp <= 0:
                 enemies.remove(enemy)
+                
+    player_collisions = pygame.sprite.spritecollide(player, enemy_bullets, True)
+    if player_collisions:
+        if player.health.decrease_hp(10) == True:
+            print("You lose!")
         
     
     sb.prep_score()

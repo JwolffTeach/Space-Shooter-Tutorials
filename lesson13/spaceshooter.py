@@ -59,8 +59,9 @@ while not done:
     
     # --- Game logic should go here
     gf.update_everything(player, bullets, enemies, enemy_bullets)
-    gf.check_collisions(settings, screen, sb, bullets, enemies, enemy_bullets)
+    gf.check_collisions(settings, screen, sb, player, bullets, enemies, enemy_bullets)
     gf.check_bullets_pos(bullets)
+    gf.check_enemy_bullets_pos(enemy_bullets, settings)
     
     # --- Draw all objects to the screen
     gf.update_screen(screen, sb, player, enemies, bullets, enemy_bullets)

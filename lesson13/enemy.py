@@ -68,6 +68,6 @@ class Enemy(Sprite):
         
     def fire_bullet(self):
         """ Fire a bullet that will move down. """
-        new_bullet = Bullet(self.settings, self.screen, self, "double")
+        new_bullet = Bullet(self.settings, self.screen, self, "single")
         new_bullet.speed_factor *= -1
         self.bullets_group.add(new_bullet)

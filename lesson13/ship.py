@@ -9,6 +9,7 @@ Changes to this file:
 
 import pygame
 from weapon import Weapon
+from player_health import Player_Health
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -22,6 +23,7 @@ class Ship():
         self.screen = screen
         self.settings = settings
         self.gun = Weapon(settings, screen, self, bullets, "snake")
+        self.health = Player_Health(screen, settings)
         
         # Add the spaceship image to program
         self.image = pygame.image.load("PNG/playerShip1_blue.png").convert()
@@ -54,6 +56,8 @@ class Ship():
     
     def blitme(self):
         """ Draw the ship at its current location to the screen. """
+        self.health.update_healthbar()
+        self.health.draw_healthbar()
         self.screen.blit(self.image, self.rect)
         
     def fire_weapon(self):
