@@ -53,7 +53,7 @@ player = Ship(screen, settings, bullets) # Create the player; Player is a ship; 
 gf.spawn_enemies(settings, screen, enemies, enemy_bullets)
 
 gf.startGame(player, bullets, enemy_bullets, enemies, settings)
- 
+
 # -------- Main Program Loop -----------
 while not done:
     
