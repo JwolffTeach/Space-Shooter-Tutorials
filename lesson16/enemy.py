@@ -64,7 +64,10 @@ class Enemy(Sprite):
         
         if self.timer > 1000: # in milliseconds
             self.fire_bullet()
-            self.timer = 0      
+            self.timer = 0    
+        
+    def onCollision(self, other):
+        print(type(self), 'Collided with ', type(other))    
         
     def fire_bullet(self):
         """ Fire a bullet that will move down. """

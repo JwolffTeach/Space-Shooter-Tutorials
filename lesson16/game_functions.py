@@ -75,8 +75,11 @@ def check_enemy_bullets_pos(enemy_bullets, settings):
 def check_collisions(settings, screen, sb, player, bullets, enemies, enemy_bullets):    
     # Check for any bullets that have hit enemies.
     # If so, get rid of the bullet and the alien.
-    collisions = pygame.sprite.groupcollide(enemies, bullets, False, True)
+    collisions = pygame.sprite.groupcollide(enemies, bullets, False, False)
     if collisions:
+        #for key, value in collisions.items():
+            #key.onCollision(value)
+            #value.onCollision(key)
         settings.increase_score(settings.enemy_points)
         for enemy in collisions:
             enemy.healthbar.decrease_hp()

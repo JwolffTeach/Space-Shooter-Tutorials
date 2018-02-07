@@ -62,6 +62,9 @@ class Bullet(Sprite):
             xChange = self.amplitude * math.cos((math.pi * self.direction) + self.frequency*((self.speed * self.timeElapsed)))
             self.x += xChange
             self.rect.x = self.x
+            
+    def onCollision(self, other):
+        print(type(self), 'Collided with ', type(other))
         
     def draw_bullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
