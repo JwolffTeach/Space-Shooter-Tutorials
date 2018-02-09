@@ -22,7 +22,7 @@ class Ship():
         """ Initialize the ship. """
         self.screen = screen
         self.settings = settings
-        self.gun = Weapon(settings, screen, self, bullets, "snake")
+        self.gun = Weapon(settings, screen, self, bullets, "single")
         self.health = Player_Health(screen, settings)
         
         # Add the spaceship image to program
